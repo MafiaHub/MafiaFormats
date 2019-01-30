@@ -22,8 +22,7 @@ such as
 go run parsers/textdb/go/*.go --file=<gamedir>/tables/textdb_cz.def
 ```
 
-[![asciicast](https://asciinema.org/a/224466.svg)](https://asciinema.org/a/224466)
-
+[![asciicast](https://asciinema.org/a/224472.svg)](https://asciinema.org/a/224472)
 
 Reference utils output all data into standard output and make use of standard error for error reporting. You can make use of the *nix power to manipulate outputted JSON data easily.
 
