@@ -11,7 +11,6 @@ function gendoc {
     genspec specs/$1.gspec.go >> docs/$1.md
 }
 
-# checkbin
 gendoc checkbin
 
 echo Done!

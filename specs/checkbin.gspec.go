@@ -18,25 +18,27 @@ package checkbin
 -> Other = 0x1000;
 */
 
-// Header specifies the file's magic constant and number of navigation points
-type Header struct {
-	Magic     uint32
-	NumPoints uint32
+// FormatCheckBIN specifies the check.bin navigation format
+type FormatCheckBIN struct {
+	Magic     uint32 // Should be 0x1ABCEDF
+	NumPoints uint32 // Number of navigation nodes
+	Points    []Point
+	Links     []Link // Size depends on number of links used by all points
 }
 
 // Point specifies an actual nav node with enter/leave links and properties
 type Point struct {
-	Type       uint16
+	Type       PointType
 	ID         uint16
 	AreaSize   uint16
 	Unk        [10]uint8 /* @plain Unknown values */
-	EnterLinks uint8
-	ExitLinks  uint8 // Is the same as EnterLinks
+	EnterLinks uint8     // How many consequent links belong to this node
+	ExitLinks  uint8     // Is the same as EnterLinks
 }
 
 // Link specifies the connection between points
 type Link struct {
-	TargetPoint uint16
-	LinkType    uint16
+	TargetPoint uint16 // Refers back to a point it connects to
+	LinkType    LinkType
 	Unk         float32
 }
