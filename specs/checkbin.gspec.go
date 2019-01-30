@@ -13,8 +13,8 @@ package checkbin
 @enum LinkType::
 -> Pedestrian = 1;
 -> AI = 2;
--> TrainsAndSalinas_Forward = 4;
--> TrainsAndSalinas_Reverse = 0x8400;
+-> Trains_Forward = 4;
+-> Trains_Reverse = 0x8400;
 -> Other = 0x1000;
 */
 
@@ -36,7 +36,7 @@ type Point struct {
 	ExitLinks  uint8     // Is the same as EnterLinks
 }
 
-// Link specifies the connection between points
+// Link specifies the connectio
 type Link struct {
 	TargetPoint uint16 // Refers back to a point it connects to
 	LinkType    LinkType

@@ -22,8 +22,8 @@ Links are stored as a block of data right after the block of points. where per e
 | ----- | ----------- |
 | Pedestrian = 1 |  |
 | AI = 2 |  |
-| TrainsAndSalinas_Forward = 4 |  |
-| TrainsAndSalinas_Reverse = 0x8400 |  |
+| Trains_Forward = 4 |  |
+| Trains_Reverse = 0x8400 |  |
 | Other = 0x1000 |  |
 
 ### Spec: FormatCheckBIN
