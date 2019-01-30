@@ -12,6 +12,7 @@ function gendoc {
 }
 
 gendoc checkbin
+gendoc mnu
 
 echo Done!
 
