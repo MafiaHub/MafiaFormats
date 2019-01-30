@@ -31,7 +31,7 @@ type Point struct {
 	AreaSize   uint16
 	Unk        [10]uint8 /* @plain Unknown values */
 	EnterLinks uint8
-	ExitLinks  uint8
+	ExitLinks  uint8 // Is the same as EnterLinks
 }
 
 // Link specifies the connection between points
