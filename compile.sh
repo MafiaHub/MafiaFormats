@@ -13,7 +13,7 @@ function gendoc {
 
 function gentool {
     mkdir -p parsers/$1/$2 2> /dev/null
-    specgen --file=specs/$1.gspec.go --lang=$2 | sed -e 's/'$1'/main/' | gofmt > parsers/$1/$2/$1.$2
+    specgen --file=specs/$1.gspec.go --lang=$2 | sed -e 's/'$1'/main/' > parsers/$1/$2/$1.$2
 }
 
 function genall {
