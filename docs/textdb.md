@@ -9,8 +9,8 @@ Per each text blob, we can use TextOffset to find a null-terminated string withi
 
 | Type | Name | Description |
 | ---- | ---- | ----------- |
-| uint32 | Unknown |  |
 | uint32 | NumBlobs |  |
+| uint32 | Unknown |  |
 | TextBlob | TextBlobs | N definitions of TextBlob;  |
 ### Spec: TextBlob
 

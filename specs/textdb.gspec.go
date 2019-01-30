@@ -2,8 +2,8 @@ package textdb
 
 // FormatTextDB specifies textdb_xx.def format
 type FormatTextDB struct {
-	Unknown   uint32
 	NumBlobs  uint32
+	Unknown   uint32
 	TextBlobs []TextBlob
 }
 

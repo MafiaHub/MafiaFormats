@@ -10,6 +10,18 @@ Simply run `compile.sh` to generate the documentation.
 ### Usage: Parser utility
 Some formats might have sample read/write tools written, so you can easily read and dump the binary data in various formats. Check out the `parsers` directory.
 
+To run parsers written in Go language, make sure you have Go installed, then simply:
+```sh
+go run parsers/<format>/go/*.go --file=<path-to-file>
+```
+
+such as
+```sh
+go run parsers/textdb/go/*.go --file=<gamedir>/tables/textdb_cz.def
+```
+
+Reference utils output all data into standard output and make use of standard error for error reporting. You can make use of the *nix power to manipulate outputted JSON data easily.
+
 ## License
 This repository is licensed under Apache 2.0 license. See `COPYING.MD` for more information.
 
