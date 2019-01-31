@@ -19,6 +19,7 @@ function gentool {
 function genall {
     gendoc $1
     gentool $1 go
+    gentool $1 c
 }
 
 # formats

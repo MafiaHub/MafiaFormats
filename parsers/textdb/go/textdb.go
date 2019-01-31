@@ -5,7 +5,8 @@ package main
 type FormatTextDB struct {
 	NumBlobs uint32 
 	Unknown uint32 
-	TextBlobs []TextBlob 
+	TextBlobs []TextBlob  `json:"-"` 
+	DataStrings *uint8  `json:"-" spec:"ptr"`  /* Buffer containing all text entry strings */
 }
 
 type TextBlob struct {

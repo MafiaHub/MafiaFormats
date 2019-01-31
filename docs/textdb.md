@@ -12,6 +12,7 @@ Per each text blob, we can use TextOffset to find a null-terminated string withi
 | uint32 | NumBlobs |  |
 | uint32 | Unknown |  |
 | TextBlob | TextBlobs | N definitions of TextBlob;  |
+| uint8* | DataStrings | Buffer containing all text entry strings |
 ### Spec: TextBlob
 
 | Type | Name | Description |
