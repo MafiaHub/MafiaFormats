@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-/* Format name: main */
+/* Format name: checkbin */
 
 
 typedef enum {
