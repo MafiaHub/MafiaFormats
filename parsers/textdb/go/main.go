@@ -13,11 +13,12 @@ import (
 )
 
 type wrappedTextBlob struct {
-	ID   uint32 `json:"id"`
+	TextBlob
 	Text string `json:"text"`
 }
 
 type wrappedFormat struct {
+	FormatTextDB
 	Blobs []wrappedTextBlob `json:"blobs"`
 }
 
@@ -30,8 +31,8 @@ func main() {
 		return
 	}
 
-	data := FormatTextDB{
-		TextBlobs: []TextBlob{},
+	data := wrappedFormat{
+		Blobs: []wrappedTextBlob{},
 	}
 	f, err := os.Open(*filePath)
 	if err != nil {
@@ -42,31 +43,23 @@ func main() {
 	binary.Read(f, binary.LittleEndian, &data.NumBlobs)
 	binary.Read(f, binary.LittleEndian, &data.Unknown)
 
-	out := wrappedFormat{
-		Blobs: []wrappedTextBlob{},
-	}
-
 	for i := 0; i < int(data.NumBlobs); i++ {
-		var blob TextBlob
+		var blob wrappedTextBlob
 		binary.Read(f, binary.LittleEndian, &blob.TextID)
 		binary.Read(f, binary.LittleEndian, &blob.TextOffset)
-		data.TextBlobs = append(data.TextBlobs, blob)
-	}
+		pos, _ := f.Seek(0, os.SEEK_CUR)
 
-	for _, v := range data.TextBlobs {
-		f.Seek(int64(v.TextOffset), os.SEEK_SET)
-		var text string = "lala"
-		// binary.Read(text)
+		f.Seek(int64(blob.TextOffset), os.SEEK_SET)
+		var text string
 		r := bufio.NewReader(f)
 		text, _ = r.ReadString(0)
 		text = strings.TrimSuffix(text, "\x00")
+		blob.Text = text
+		f.Seek(pos, os.SEEK_SET)
 
-		out.Blobs = append(out.Blobs, wrappedTextBlob{
-			ID:   v.TextID,
-			Text: text,
-		})
+		data.Blobs = append(data.Blobs, blob)
 	}
 
-	output, _ := jsoniter.MarshalToString(out)
+	output, _ := jsoniter.MarshalToString(data)
 	fmt.Println(output)
 }

@@ -17,8 +17,8 @@ This format specifies game menus used within 1.3 version of the game.
 | ---- | ---- | ----------- |
 | uint32 | Unknown |  |
 | uint8 | Type | String consisting of 4 characters;  |
-| float32 | Position | plain array of 2 elements; [X, Y] |
-| float32 | Scale | plain array of 2 elements; [W, H] |
+| float32 | Position | plain array of 2 elements;  |
+| float32 | Scale | plain array of 2 elements;  |
 | uint32 | TextID | taken from Textdb_xx.def |
 | uint16 | TextColor |  |
 | uint16 | BackgroundColor |  |

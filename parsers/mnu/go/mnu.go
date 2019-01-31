@@ -11,9 +11,9 @@ type FormatMNU struct {
 
 type Control struct {
 	Unknown uint32 
-	Type [4]uint8  /* @string */
-	Position [2]float32  /* @plain [X, Y] */
-	Scale [2]float32  /* @plain [W, H] */
+	Type [4]uint8  `spec:"string"` 
+	Position [2]float32  `spec:"plain"` 
+	Scale [2]float32  `spec:"plain"` 
 	TextID uint32  /* taken from Textdb_xx.def */
 	TextColor uint16 
 	BackgroundColor uint16 

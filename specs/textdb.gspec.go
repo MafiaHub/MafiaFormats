@@ -9,6 +9,6 @@ type FormatTextDB struct {
 
 // TextBlob specifies the text entry
 type TextBlob struct {
-	TextID     uint32
-	TextOffset uint32 // Absolute position to a null-terminated string
+	TextID     uint32 `json:"id"`
+	TextOffset uint32 `json:"-"` // Absolute position to a null-terminated string
 }

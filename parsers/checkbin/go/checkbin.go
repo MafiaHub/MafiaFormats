@@ -31,7 +31,7 @@ type Point struct {
 	Type PointType 
 	ID uint16 
 	AreaSize uint16 
-	Unk [10]uint8  /* @plain Unknown values */
+	Unk [10]uint8  `spec:"plain"`  /* Unknown values */
 	EnterLinks uint8  /* How many consequent links belong to this node */
 	ExitLinks uint8  /* Is the same as EnterLinks */
 }
